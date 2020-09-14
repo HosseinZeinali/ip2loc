@@ -1,0 +1,30 @@
+version: '3.1'
+
+volumes:
+  postgres_database:
+    driver: local
+  mysql_database:
+    driver: local
+
+services:
+  postgres:
+    image: postgres
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - postgres_database:/var/lib/postgresql/data
+    ports:
+      - 2345:5432
+  mysql:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_ASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DB}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    volumes:
+      - mysql_database:/var/lib/mysql
+    ports:
+      - 6033:3306
