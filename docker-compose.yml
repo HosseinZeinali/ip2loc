@@ -13,6 +13,7 @@ services:
       dockerfile: build/go/Dockerfile
     volumes:
     - ./data:/app/ip2loc/data
+    - ./bin:/app/ip2loc/bin
     links:
       - postgres
 
@@ -26,14 +27,14 @@ services:
       - postgres_database:/var/lib/postgresql/data
     ports:
       - 2345:5432
-  mysql:
-    image: mysql:5.7
-    environment:
-      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_ASSWORD}
-      MYSQL_DATABASE: ${MYSQL_DB}
-      MYSQL_USER: ${MYSQL_USER}
-      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
-    volumes:
-      - mysql_database:/var/lib/mysql
-    ports:
-      - 6033:3306
+#  mysql:
+#    image: mysql:5.7
+#    environment:
+#      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_ASSWORD}
+#      MYSQL_DATABASE: ${MYSQL_DB}
+#      MYSQL_USER: ${MYSQL_USER}
+#      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+#    volumes:
+#      - mysql_database:/var/lib/mysql
+#    ports:
+#      - 6033:3306

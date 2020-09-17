@@ -3,7 +3,7 @@ FROM golang:1.14-alpine
 WORKDIR /app/ip2loc
 COPY . .
 
-RUN go build -o ./out/ip2loc .
+RUN go build -o ./bin/ip2loc .
 
 ARG USER=application
 ARG GROUP=application
@@ -12,4 +12,4 @@ RUN addgroup -g 1000 -S ${GROUP} && \
 
 RUN chown -hR application:application /app/ip2loc
 
-CMD ["./out/ip2loc"]
+CMD ["./bin/ip2loc"]
