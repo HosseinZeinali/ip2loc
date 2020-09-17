@@ -96,7 +96,7 @@ func Ipv62IpDto(ipv6 *model.Ipv6) *dto.IpDto {
 func Ipv42IpDto(ipv4 *model.Ipv4) *dto.IpDto {
 	ipStart := Int2Ip(ipv4.IpStart)
 	ipEnd := Int2Ip(ipv4.IpEnd)
-	ip := dto.NewIpDto("ipv6", ipStart.String(), ipEnd.String(), ipv4.IpCount, ipv4.Date, ipv4.Status, ipv4.Cc)
+	ip := dto.NewIpDto("ipv4", ipStart.String(), ipEnd.String(), ipv4.IpCount, ipv4.Date, ipv4.Status, ipv4.Cc)
 
 	return ip
 }
