@@ -23,6 +23,9 @@ func (db *Database) GetAllTables() ([]*model.Table, error) {
 	tableState := fmt.Sprintf(`SELECT * FROM tables ORDER BY id DESC; `)
 	rows, err := db.Queryx(tableState)
 	var tables []*model.Table
+	if rows == nil {
+		return tables, nil
+	}
 	for rows.Next() {
 		var table model.Table
 		err = rows.StructScan(&table)
