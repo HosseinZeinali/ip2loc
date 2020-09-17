@@ -12,11 +12,11 @@ services:
       context: ./
       dockerfile: build/go/Dockerfile
     volumes:
-    - ./data:/app/ip2loc/data
-    - ./bin:/app/ip2loc/bin
+      - ./:/app/ip2loc/Fi
     links:
       - postgres
-
+    ports:
+      - ${HTTP_PORT}:8081
   postgres:
     image: postgres
     environment:

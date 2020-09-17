@@ -117,8 +117,9 @@ func (nic *Nic) CheckForChangeByNicTitle(nicTitle string) (bool, error) {
 func (nic *Nic) CheckForChange() (bool, error) {
 	for _, nicTitle := range nicsList {
 		isChanged, err := nic.CheckForChangeByNicTitle(nicTitle)
-		fmt.Println(nicTitle)
-		fmt.Println(isChanged)
+		if !isChanged {
+			fmt.Println(nicTitle + " is already up-to-date.")
+		}
 		if err != nil {
 			return false, err
 		}

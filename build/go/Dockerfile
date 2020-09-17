@@ -12,4 +12,6 @@ RUN addgroup -g 1000 -S ${GROUP} && \
 
 RUN chown -hR application:application /app/ip2loc
 
+USER $USER
+
 CMD ["./bin/ip2loc"]

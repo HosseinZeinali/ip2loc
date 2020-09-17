@@ -49,6 +49,8 @@ func updateIpsIfNeeded(ctx *app.Context) {
 	isChanged, _ := ctx.Nic.CheckForChange()
 	if isChanged {
 		fmt.Println("The database should be updated")
+	} else {
+		fmt.Println("The database is already up-to-date.")
 	}
 	if isChanged {
 		ipv4Table := "ipv4s_" + RandStringRunes(8)
