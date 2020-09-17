@@ -12,7 +12,7 @@ services:
       context: ./
       dockerfile: build/go/Dockerfile
     volumes:
-      - ./:/app/ip2loc/Fi
+      - ./:/app/ip2loc/
     links:
       - postgres
     ports:
