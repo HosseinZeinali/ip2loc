@@ -2,9 +2,13 @@
 # Installation
 1-Make sure tou have installed docker/docker-compose and Make.
 
-2-make .env file based on .env.dist
+2-clone this repository
+```
+git clone git@github.com:HosseinZeinali/ip2loc.git
+```
+3-make .env file based on .env.dist
 
-3-Then run below command:
+4-Then run below command:
 ```sh
 make up
 ```
