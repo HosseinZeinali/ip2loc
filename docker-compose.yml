@@ -7,6 +7,15 @@ volumes:
     driver: local
 
 services:
+  ip2loc:
+    build:
+      context: ./
+      dockerfile: build/go/Dockerfile
+    volumes:
+    - ./data:/app/ip2loc/data
+    links:
+      - postgres
+
   postgres:
     image: postgres
     environment:
