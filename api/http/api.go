@@ -1,7 +1,6 @@
 package http
 
 import (
-	"fmt"
 	"github.com/HosseinZeinali/ip2loc/app"
 	"github.com/gorilla/mux"
 	"net/http"
@@ -30,9 +29,7 @@ func (a *API) handler(f func(*app.Context, http.ResponseWriter, *http.Request) e
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		ctx := a.App.NewContext()
 		if err := f(ctx, w, r); err != nil {
-			fmt.Println("------")
-			fmt.Println(err)
-			fmt.Println("------")
+			ctx.Logger.ActionError("handling http request.")
 
 			http.Error(w, "internal server error", http.StatusInternalServerError)
 		}

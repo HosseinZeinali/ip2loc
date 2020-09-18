@@ -1,7 +1,6 @@
 package cmd
 
 import (
-	"fmt"
 	apiHttp "github.com/HosseinZeinali/ip2loc/api/http"
 	"github.com/HosseinZeinali/ip2loc/app"
 	"github.com/HosseinZeinali/ip2loc/model"
@@ -48,16 +47,14 @@ func Serve() {
 func updateIpsIfNeeded(ctx *app.Context) {
 	isChanged, _ := ctx.Nic.CheckForChange()
 	if isChanged {
-		fmt.Println("The database should be updated")
+		ctx.Logger.ActionInfo("The database should be updated")
 	} else {
-		fmt.Println("The database is already up-to-date.")
+		ctx.Logger.ActionInfo("The database is already up-to-date.")
 	}
 	if isChanged {
 		ipv4Table := "ipv4s_" + RandStringRunes(8)
 		ipv6Table := "ipv6s_" + RandStringRunes(8)
-		fmt.Println("new ipv4 table name:" + ipv4Table)
-		fmt.Println("new ipv6 table name:" + ipv6Table)
-		fmt.Println("donwloding nic data")
+		ctx.Logger.ActionInfo("donwloding nic data")
 		ctx.Nic.DownloadNicData()
 		ctx.Database.CreateIpv4Table(ipv4Table)
 		ctx.Database.CreateIpv6Table(ipv6Table)
@@ -73,9 +70,9 @@ func updateIpsIfNeeded(ctx *app.Context) {
 				if i%100 == 0 {
 					err := ctx.Database.CreateBatchIpv4s(ipv4Table, ipv4s)
 					if err != nil {
-						fmt.Println("error occurred inserting 100 ipv4 records")
+						ctx.Logger.ActionError("inserting 100 ipv4 records")
 					} else {
-						fmt.Println("100 ipv4 records inserted successfully")
+						ctx.Logger.ActionInfo("Successfully inserted 100 ipv4 records")
 					}
 					ipv4s = nil
 				}
@@ -87,9 +84,9 @@ func updateIpsIfNeeded(ctx *app.Context) {
 				if j%100 == 0 {
 					err := ctx.Database.CreateBatchIpv6s(ipv6Table, ipv6s)
 					if err != nil {
-						fmt.Println("error occurred inserting 100 ipv6 records")
+						ctx.Logger.ActionError("inserting 100 ipv6 records")
 					} else {
-						fmt.Println("100 ipv6 records inserted successfully")
+						ctx.Logger.ActionInfo("Successfully inserted 100 ipv6 records")
 					}
 					ipv6s = nil
 				}
@@ -104,7 +101,7 @@ func updateIpsIfNeeded(ctx *app.Context) {
 		ctx.Database.CreateTable(ipv6T)
 		ctx.Database.DefaultIpv6Table = ipv6Table
 		ctx.Database.DefaultIpv4Table = ipv4Table
-		fmt.Println("Database updated successfully.")
+		ctx.Logger.ActionInfo("Successfully updated database")
 	}
 }
 

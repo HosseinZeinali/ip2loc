@@ -56,7 +56,6 @@ func (db *Database) GetIpv6RecordByIpv6(tableName string, intIp *big.Int) (*mode
 	for rows.Next() {
 		err = rows.StructScan(&ip)
 	}
-	fmt.Println(ip)
 
 	return &ip, err
 }

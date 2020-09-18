@@ -37,6 +37,10 @@ func (m *MainLogger) ActionError(action string) {
 	m.Errorf(actionError.message, action)
 }
 
+func (m *MainLogger) ActionInfo(action string) {
+	m.Info(action)
+}
+
 type MainLogger struct {
 	*logrus.Logger
 }

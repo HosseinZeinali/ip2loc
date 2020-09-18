@@ -7,9 +7,7 @@ up:
 down:
 	docker-compose down
 rebuild:
-	make up
-	docker-compose exec --user=application ip2loc go build -o ./bin/ip2loc .
-	make up
+	docker-compose build ip2loc
 shell:
 	docker-compose exec --user=application ip2loc sh
 logs:

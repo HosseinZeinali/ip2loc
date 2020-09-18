@@ -3,8 +3,8 @@ version: '3.1'
 volumes:
   postgres_database:
     driver: local
-  mysql_database:
-    driver: local
+#  mysql_database:
+#    driver: local
 
 services:
   ip2loc:
@@ -12,7 +12,7 @@ services:
       context: ./
       dockerfile: build/go/Dockerfile
     volumes:
-      - ./:/app/ip2loc/
+      - ./data:/app/ip2loc/data
     links:
       - postgres
     ports:

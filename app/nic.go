@@ -117,9 +117,7 @@ func (nic *Nic) CheckForChangeByNicTitle(nicTitle string) (bool, error) {
 func (nic *Nic) CheckForChange() (bool, error) {
 	for _, nicTitle := range nicsList {
 		isChanged, err := nic.CheckForChangeByNicTitle(nicTitle)
-		if !isChanged {
-			fmt.Println(nicTitle + " is already up-to-date.")
-		}
+
 		if err != nil {
 			return false, err
 		}
@@ -152,7 +150,6 @@ func (nic *Nic) GetNicRecordsByNicTitle(nicTitle string) (<-chan *dto.IpDto, err
 		for line := range reader {
 			if getNicFileLineType(line) == "ipv4" {
 				ip := Nic2Ipv4Dto(line)
-				fmt.Println(ip)
 				chnl <- ip
 			}
 			if getNicFileLineType(line) == "ipv6" {
