@@ -14,6 +14,7 @@ func (a *App) NewContext() *Context {
 	return &Context{
 		Database: a.Database,
 		Nic:      nic,
+		Logger:   NewLogger(),
 	}
 }
 
