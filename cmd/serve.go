@@ -13,7 +13,7 @@ import (
 )
 
 func Serve() {
-	ticker := time.NewTicker(10 * time.Minute)
+	ticker := time.NewTicker(6 * time.Hour)
 	app, _ := app.New()
 	ctx := app.NewContext()
 
