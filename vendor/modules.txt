@@ -1,10 +1,4 @@
-# github.com/gorilla/handlers v1.4.2
-## explicit
-github.com/gorilla/handlers
-# github.com/gorilla/mux v1.7.4
-## explicit
-github.com/gorilla/mux
-# github.com/jinzhu/gorm v1.9.14
+# github.com/go-sql-driver/mysql v1.5.0
 ## explicit
 # github.com/jmoiron/sqlx v1.2.0
 ## explicit
@@ -13,6 +7,9 @@ github.com/jmoiron/sqlx/reflectx
 # github.com/joho/godotenv v1.3.0
 ## explicit
 github.com/joho/godotenv
+# github.com/julienschmidt/httprouter v1.2.0
+## explicit
+github.com/julienschmidt/httprouter
 # github.com/konsorten/go-windows-terminal-sequences v1.0.1
 github.com/konsorten/go-windows-terminal-sequences
 # github.com/lib/pq v1.1.1
@@ -20,12 +17,15 @@ github.com/konsorten/go-windows-terminal-sequences
 github.com/lib/pq
 github.com/lib/pq/oid
 github.com/lib/pq/scram
+# github.com/mattn/go-sqlite3 v1.14.0
+## explicit
 # github.com/sirupsen/logrus v1.2.0
 ## explicit
 github.com/sirupsen/logrus
-# github.com/spf13/viper v1.7.0
+# github.com/stretchr/testify v1.3.0
 ## explicit
 # golang.org/x/crypto v0.0.0-20191205180655-e7c4368fe9dd
+## explicit
 golang.org/x/crypto/ssh/terminal
 # golang.org/x/sys v0.0.0-20200323222414-85ca7c5b95cd
 golang.org/x/sys/unix

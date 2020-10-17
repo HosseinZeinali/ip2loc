@@ -16,7 +16,7 @@ services:
     links:
       - postgres
     ports:
-      - ${HTTP_PORT}:8081
+      - ${HTTP_PORT}:8080
   postgres:
     image: postgres
     environment:
