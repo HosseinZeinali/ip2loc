@@ -15,5 +15,5 @@ make up
 That's it.
 # Endpoints
 ```
-GET http://localhost:8082/api/ip/${ip}
+GET http://localhost:8082/api/v1/ip/${ip}
 ```
