@@ -30,22 +30,6 @@ func Serve() {
 	server.Api.InitRoutes()
 	server.InitRoutes()
 	server.ListenAndServe()
-	//api1, _ := apiHttp.New(app)
-	//router := mux.NewRouter()
-	//cors := handlers.CORS(
-	//	handlers.AllowedOrigins([]string{"*"}),
-	//	handlers.AllowedMethods([]string{"GET", "HEAD", "POST", "OPTIONS"}),
-	//	handlers.AllowedHeaders([]string{"Content-Type", "Authorization"}),
-	//)
-	//s := &http.Server{
-	//	Addr:        ":8081",
-	//	Handler:     cors(router),
-	//	ReadTimeout: 2 * time.Minute,
-	//}
-	//api1.Init(router.PathPrefix("/api").Subrouter())
-	//if err := s.ListenAndServe(); err != http.ErrServerClosed {
-	//	logrus.Error(err)
-	//}
 }
 
 func updateIpsIfNeeded(ctx *app.Context) {
